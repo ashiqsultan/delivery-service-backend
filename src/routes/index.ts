@@ -3,6 +3,7 @@ import verifyJwt from '../middleware/verifyJwt';
 import * as organization from '../controller/organization';
 import * as user from '../controller/user';
 import * as shipment from '../controller/shipment';
+import * as deliveryAssociate from '../controller/deliveryAssociate';
 import * as auth from '../controller/auth';
 import { pong } from '../controller/ping';
 
@@ -18,6 +19,9 @@ routes.get('/ping', pong);
 routes.post('/signup', user.createUser);
 routes.post('/auth/login', auth.login);
 
+//deliveryAssociate
+routes.post('/delivery-associate', deliveryAssociate.createDeliveryAssociate);
+
 // Auth middleware
 routes.use(verifyJwt);
 
@@ -32,9 +36,5 @@ routes.delete('/user/:userId', user.deleteOne);
 
 //shipment
 routes.post('/shipment', shipment.createShipment);
-routes.get(
-  '/shipment/find-delivery-associate/:id',
-  shipment.findDeliveryAssociate
-);
 
 export default routes;

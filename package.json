@@ -26,6 +26,8 @@
 	},
 	"dependencies": {
 		"@ngneat/falso": "^6.2.0",
+		"@turf/random": "^6.5.0",
+		"@turf/turf": "^6.5.0",
 		"@types/geojson": "^7946.0.10",
 		"bcryptjs": "^2.4.3",
 		"cors": "^2.8.5",

@@ -6,6 +6,7 @@ import PointSchema from './PointSchema';
 
 export enum ShipmentStatus {
   requested = 'requested',
+  deliveryAssociateAssigned = 'deliveryAssociateAssigned',
   pickupLocationReached = 'pickupLocationReached',
   transporting = 'transporting',
   dropLocationReached = 'dropLocationReached',
