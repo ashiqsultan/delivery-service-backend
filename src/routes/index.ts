@@ -2,6 +2,7 @@ import { Router } from 'express';
 import verifyJwt from '../middleware/verifyJwt';
 import * as organization from '../controller/organization';
 import * as user from '../controller/user';
+import * as shipment from '../controller/shipment';
 import * as auth from '../controller/auth';
 import { pong } from '../controller/ping';
 
@@ -28,5 +29,8 @@ routes.post('/organization', organization.createOrg);
 routes.get('/user', user.getMe);
 routes.get('/user/:userId', user.getOne);
 routes.delete('/user/:userId', user.deleteOne);
+
+//shipment
+routes.post('/shipment', shipment.createShipment);
 
 export default routes;

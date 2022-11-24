@@ -14,9 +14,9 @@ export enum ShipmentStatus {
 }
 export interface IShipment {
   pickupLocation: Point;
-  dropLocationLocation: Point;
+  dropLocation: Point;
   userId: string | IUser;
-  deliveryAssociateId: string | IDeliveryAssociate;
+  deliveryAssociateId?: string | IDeliveryAssociate;
   status: ShipmentStatus;
 }
 
