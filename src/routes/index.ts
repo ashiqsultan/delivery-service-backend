@@ -32,5 +32,9 @@ routes.delete('/user/:userId', user.deleteOne);
 
 //shipment
 routes.post('/shipment', shipment.createShipment);
+routes.get(
+  '/shipment/find-delivery-associate/:id',
+  shipment.findDeliveryAssociate
+);
 
 export default routes;
