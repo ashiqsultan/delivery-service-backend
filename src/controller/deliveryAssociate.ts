@@ -12,7 +12,8 @@ export const createDeliveryAssociate = async (
   try {
     const randomDeliveryAssociate = await generateAssociate();
     const deliveryAssociate = await createOne(randomDeliveryAssociate);
-    res.send(deliveryAssociate);
+    const response: AppResponse = { data: deliveryAssociate, isError: false };
+    res.send(response);
   } catch (error) {
     next(error);
   }
