@@ -22,9 +22,16 @@ routes.post('/auth/login', auth.login);
 //deliveryAssociate
 routes.post('/delivery-associate', deliveryAssociate.createDeliveryAssociate);
 
+// Shipment
+routes.patch('/shipment/:id/delivery-associate', shipment.patchDeliveryAssociate);
+routes.patch('/shipment/:id/status', shipment.patchStatus);
+
 // Auth middleware
 routes.use(verifyJwt);
 
+/**
+ * Auth Routes
+ */
 // organization Routes
 routes.get('/organization/:id', organization.findOrgById);
 routes.post('/organization', organization.createOrg);

@@ -8,9 +8,15 @@ export default async (
   status: ShipmentStatus
 ): Promise<IShipmentSchema> => {
   try {
-    const shipment = await Shipment.findByIdAndUpdate(id, {
-      status,
-    });
+    console.log({ id, status });
+    const shipment = await Shipment.findByIdAndUpdate(
+      id,
+      {
+        status,
+      },
+      { new: true }
+    );
+    console.log(shipment);
     return shipment;
   } catch (error) {
     throw error;

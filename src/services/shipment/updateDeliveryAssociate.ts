@@ -5,9 +5,13 @@ const updateDeliveryAssociate = async (
   deliveryAssociateId: string
 ): Promise<IShipmentSchema> => {
   try {
-    const shipment = await Shipment.findByIdAndUpdate(id, {
-      deliveryAssociateId: deliveryAssociateId,
-    });
+    const shipment = await Shipment.findByIdAndUpdate(
+      id,
+      {
+        deliveryAssociateId: deliveryAssociateId,
+      },
+      { new: true }
+    );
     return shipment;
   } catch (error) {
     throw error;
