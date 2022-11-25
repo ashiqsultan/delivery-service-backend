@@ -2,6 +2,7 @@ require('dotenv').config();
 import app from './app';
 import http from 'http';
 import { Server } from 'socket.io';
+import socketHandler from './sockethandler';
 
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -13,12 +14,7 @@ const io = new Server(server, {
   },
 });
 
-io.on('connection', (socket: any) => {
-  console.log('a user connected');
-  socket.on('disconnect', () => {
-    console.log('user disconnected');
-  });
-});
+socketHandler(io);
 
 /**
  * Start Express server.
