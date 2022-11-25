@@ -35,6 +35,7 @@
 		"express": "^4.18.1",
 		"jsonwebtoken": "^8.5.1",
 		"mongoose": "^6.3.4",
-		"morgan": "^1.10.0"
+		"morgan": "^1.10.0",
+		"socket.io": "^4.5.4"
 	}
 }
