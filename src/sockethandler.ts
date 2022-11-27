@@ -67,11 +67,16 @@ const socketHandler = (io: Server) => {
       // Broadcast Shipment Available Msg to Delivery Associates
       io.emit(socketEvents.SHIPMENT_CREATED, fullDocument);
     }
-    io.to(fullDocument._id).emit(socketEvents.SHIPMENT_UPDATED, fullDocument);
+    if (data.operationType === 'update') {
+      io.to(String(fullDocument._id)).emit(
+        socketEvents.SHIPMENT_UPDATED,
+        fullDocument
+      );
+    }
   });
   DeliveryAssociate.watch([], watchOptions).on('change', (data: any) => {
     const fullDocument = data.fullDocument;
-    io.to(fullDocument._id).emit(
+    io.to(String(fullDocument._id)).emit(
       socketEvents.DA_LOCATION_CHANGED,
       fullDocument
     );
