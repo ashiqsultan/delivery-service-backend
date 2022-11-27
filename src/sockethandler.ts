@@ -63,6 +63,10 @@ const socketHandler = (io: Server) => {
   };
   Shipment.watch([], watchOptions).on('change', (data: any) => {
     const fullDocument = data.fullDocument;
+    if (data.operationType === 'insert') {
+      // Broadcast Shipment Available Msg to Delivery Associates
+      io.emit(socketEvents.SHIPMENT_CREATED, fullDocument);
+    }
     io.to(fullDocument._id).emit(socketEvents.SHIPMENT_UPDATED, fullDocument);
   });
   DeliveryAssociate.watch([], watchOptions).on('change', (data: any) => {
