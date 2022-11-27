@@ -20,6 +20,7 @@ routes.post('/signup', user.createUser);
 routes.post('/auth/login', auth.login);
 
 //deliveryAssociate
+routes.get('/delivery-associate/:id', deliveryAssociate.getDAById);
 routes.post('/delivery-associate', deliveryAssociate.createDeliveryAssociate);
 
 // Shipment
