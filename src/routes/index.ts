@@ -16,7 +16,7 @@ let routes = Router();
 routes.get('/ping', pong);
 
 // login route
-routes.post('/signup', user.createUser);
+// routes.post('/signup', user.createUser);
 routes.post('/auth/login', auth.login);
 
 //deliveryAssociate
